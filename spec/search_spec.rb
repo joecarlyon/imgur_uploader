@@ -16,7 +16,7 @@ context 'Tempus Automation Interview' do
       landing.type_search_text search_term
       landing.submit_search
 
-      search = SearchPage.new
+      search = SearchResultsPage.new
       # The internet is full of cats
       search.get_number_of_images > 1
       expect(search.get_search_term).to eq(search_term)

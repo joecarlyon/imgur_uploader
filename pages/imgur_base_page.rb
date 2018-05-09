@@ -12,6 +12,8 @@ class ImgurBasePage < BasePage
   SEARCH_BAR = { css: 'input.search' }.freeze
   SEARCH_SUBMIT_BUTTON = { css: 'div.icon-search' }.freeze
 
+  RANDOM_BUTTON = { id: 'random-button' }.freeze
+
   def logo_displayed?
     displayed? LOGO
   end
@@ -55,5 +57,9 @@ class ImgurBasePage < BasePage
     # YUCK we need to use JS to remove the class that is disabling sending keys
     $driver.execute_script("$('#{INPUT_BOX[:css]}').removeAttr('class')")
     send_keys INPUT_BOX, file_path
+  end
+
+  def click_random_button
+    click RANDOM_BUTTON
   end
 end
