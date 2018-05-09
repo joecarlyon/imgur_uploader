@@ -8,23 +8,19 @@ context 'Tempus Automation Interview' do
       load_imgur
     end
 
-    it 'loads correctly' do
+    let(:search_term) { 'demon kitty' }
+
+    it 'can search for cool cat pictures' do
       landing = LandingPage.new
-      expect(get_page_title).to eql('Imgur: The magic of the Internet')
-      expect(landing.logo_displayed?).to be true
-    end
+      landing.click_search_icon
+      landing.type_search_text search_term
+      landing.submit_search
 
-    it 'can upload file' do
-      file_to_upload = File.absolute_path('../lib/javascript.jpg')
-
-      landing = LandingPage.new
-      landing.click_new_post
-      expect(landing.upload_modal_displayed?).to be true
-      landing.upload_file(file_to_upload)
-
-      expect(landing.post_title_displayed?).to be true
-      expect(landing.uploaded_image_displayed?).to be true
-      expect(get_page_url).to start_with('https://imgur.com/a/')
+      search = SearchPage.new
+      # The internet is full of cats
+      search.get_number_of_images > 1
+      expect(search.get_search_term).to eq(search_term)
+      expect(get_page_url).to eq("https://imgur.com/search?q=#{search_term.tr(' ', '+')}")
     end
   end
 end
