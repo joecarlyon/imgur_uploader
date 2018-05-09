@@ -7,7 +7,13 @@ Dir[File.dirname(__FILE__) + '/pages/*.rb'].each {|file| require_relative file}
 # Let's restrict this to Firefox because it's only a code sample
 #
 def setup
-  $driver = Selenium::WebDriver.for :firefox
+  if ENV['BROWSER'] == 'firefox'
+    $driver = Selenium::WebDriver.for :firefox
+  elsif ENV['BROWSER'] == 'chrome'
+    $driver = Selenium::WebDriver.for :chrome
+  else
+    puts 'The only valid browser options are [firefox | chrome]'
+  end
 end
 
 # Make sure to exit the browser after each test

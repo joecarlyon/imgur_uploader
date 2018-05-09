@@ -11,7 +11,7 @@ This is a set of automated tests using Ruby / Rspec to test workflows on imgur.c
 
 ## Test Cases / Results
 
-???
+
 
 ## Installation
 
@@ -25,5 +25,10 @@ This is a set of automated tests using Ruby / Rspec to test workflows on imgur.c
 * Gems must be installed
 > ```bundle install``` will take care of all necessary gems
 
+* Install the drivers
+> `brew install chromedriver`
+
+> `brew install geckodriver`
+   
 * Run 
-> ```bundle exec rspec spec```
+> ```./run_all_tests.sh```
