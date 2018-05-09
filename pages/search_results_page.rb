@@ -1,7 +1,7 @@
-require_relative 'base_page'
+require_relative 'imgur_base_page'
 
 # Every page object should inherit from BasePage in one way or another
-class SearchPage < BasePage
+class SearchPage < ImgurBasePage
 
   FOUND_IMAGES = { css: 'div.cards > div' }.freeze
   SEARCH_TERM_USED = { css: 'span.search-term-text' }.freeze

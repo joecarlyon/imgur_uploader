@@ -1,7 +1,7 @@
-require_relative 'base_page'
+require_relative 'imgur_base_page'
 
 # Every page object should inherit from BasePage in one way or another
-class LandingPage < BasePage
+class LandingPage < ImgurBasePage
 
   POST_TITLE = { css: 'h1.post-title' }.freeze
   UPLOADED_IMAGE = { css: 'div.post-image' }.freeze

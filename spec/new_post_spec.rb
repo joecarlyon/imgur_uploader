@@ -15,7 +15,7 @@ context 'Tempus Automation Interview' do
     end
 
     it 'can upload file' do
-      file_to_upload = File.absolute_path('../lib/javascript.jpg')
+      file_to_upload = File.expand_path('../../lib/javascript.jpg', __FILE__)
 
       landing = LandingPage.new
       landing.click_new_post
